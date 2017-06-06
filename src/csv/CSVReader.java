@@ -8,33 +8,20 @@ import java.io.IOException;
 public class CSVReader {
 
 	public static void main(String[] args) {
-		getRandomCity();
+		int[] tab = {0,1};
+		getRandomLineCSV("resources/prenom.csv", ",", 565, tab);
 	}
 	
 	/**
 	 * 
-	 * @return String city or null if exception
+	 * @return String or null if exception
 	 */
-    public static String getRandomPrenom() {
-    	int max = 565;
-    	return null;
-    }
-	
-	/**
-	 * 
-	 * @return String city or null if exception
-	 */
-    public static String getRandomCity() {
+    public static String[] getRandomLineCSV(String csvFile, String csvSplitBy, int max, int[] columns) {
 
-        String csvFile = "resources/villes_france.csv";
         BufferedReader br = null;
         String line = "";
-        String cvsSplitBy = ",";
-        
-        int max = 36700;
-        
         int nb = (int) (Math.random() * max) + 1;
-        System.out.println(nb);
+
         try {
 
             br = new BufferedReader(new FileReader(csvFile));
@@ -42,11 +29,13 @@ public class CSVReader {
             for(int i = 0 ; i < nb ; i++) {
             	line = br.readLine();
             }
-            String[] country = line.split(cvsSplitBy);
+            String[] country = line.split(csvSplitBy);
 
-            System.out.println("Country : " + country[3]);
+            for (int i = 0; i < country.length; i++) {
+            	System.out.println("Country : " + country[columns[i]]);
+			}
 
-            return country[3];
+            return country;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
