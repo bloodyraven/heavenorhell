@@ -8,15 +8,14 @@ import java.io.IOException;
 public class CSVReader {
 
 	public static void main(String[] args) {
-		int[] tab = {0,1};
-		getRandomLineCSV("resources/prenom.csv", ",", 565, tab);
+		getRandomLineCSV("resources/prenom.csv", ",", 565);
 	}
 	
 	/**
 	 * 
 	 * @return String or null if exception
 	 */
-    public static String[] getRandomLineCSV(String csvFile, String csvSplitBy, int max, int[] columns) {
+    public static String[] getRandomLineCSV(String csvFile, String csvSplitBy, int max) {
 
         BufferedReader br = null;
         String line = "";
@@ -30,10 +29,6 @@ public class CSVReader {
             	line = br.readLine();
             }
             String[] country = line.split(csvSplitBy);
-
-            for (int i = 0; i < country.length; i++) {
-            	System.out.println("Country : " + country[columns[i]]);
-			}
 
             return country;
 

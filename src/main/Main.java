@@ -7,11 +7,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+import beans.Personne;
 
+public class Main {
+	
 	public static void main(String[] args) {
-		int max = 135655;
-		
+		Personne p = new Personne();
+		System.out.println(p.toString());
+	}
+
+	public void blabla() {
 		BufferedWriter writer = null;
 		BufferedReader br = null;
 		
@@ -30,7 +35,7 @@ public class Main {
             br = new BufferedReader(new FileReader("resources/prenom.csv"));
                 
             while((line = br.readLine())!= null) {
-            	String[] country = line.split(";");
+            	String[] country = line.split(",");
             	writer.write(country[0]+","+country[1]+"\n");
             }
             
