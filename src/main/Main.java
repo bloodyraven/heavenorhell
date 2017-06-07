@@ -7,12 +7,22 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JFrame;
+
+import ui.InfoPanel;
 import beans.Personne;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		Personne p = new Personne();
+		JFrame f = new JFrame("Heaven Or Hell");
+		f.setContentPane(new InfoPanel(p));
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//f.setSize(570, 510);
+		f.setLocationRelativeTo(null);
+		f.setVisible(true);
+		
 		System.out.println(p.toString());
 	}
 

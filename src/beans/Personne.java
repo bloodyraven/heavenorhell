@@ -24,6 +24,7 @@ public class Personne {
 	
 	public String toString() {
 		String str = "";
+		System.out.println(getCivilite());
 		System.out.println(nom_genre[0]);
 		System.out.println(numRue+" "+adresse_ville[0]+"\n"+adresse_ville[1]);
 		System.out.println("Age : "+age);
@@ -36,6 +37,14 @@ public class Personne {
 
 	public String[] getNom() {
 		return nom_genre;
+	}
+	
+	public String getCivilite() {
+		if(nom_genre[1].equals("f")) {
+			return "Mme ";
+		} else {
+			return "M. ";
+		}
 	}
 
 	public void setNom_genre(String[] nom_genre) {
