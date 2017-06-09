@@ -24,7 +24,7 @@ public class Personne {
 	
 	public String toString() {
 		String str = "";
-		System.out.println(getCivilite());
+		System.out.print(getCivilite()+" ");
 		System.out.println(nom_genre[0]);
 		System.out.println(numRue+" "+adresse_ville[0]+"\n"+adresse_ville[1]);
 		System.out.println("Age : "+age);

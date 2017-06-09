@@ -49,5 +49,42 @@ public class CSVReader {
         return null;
 
     }
+    
+    public static String[][] getRandomLinesCSV(String csvFile, String csvSplitBy, int max, int numberOfLinesWanted) {
+
+        BufferedReader br = null;
+        String line = "";
+        String[][] toReturn = new String[numberOfLinesWanted][];
+
+        try {
+
+            br = new BufferedReader(new FileReader(csvFile));
+            for (int i = 0; i < numberOfLinesWanted; i++) {
+            	int nb = (int) (Math.random() * max) + 1;
+                for(int j = 0 ; j < nb ; j++) {
+                	line = br.readLine();
+                	toReturn[i] = line.split(csvSplitBy);
+                }
+			}
+
+            return toReturn;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+        return null;
+
+    }
 
 }

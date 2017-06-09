@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 import ui.InfoPanel;
+import beans.Joueur;
 import beans.Personne;
 
 public class Main {
@@ -17,9 +18,9 @@ public class Main {
 	public static void main(String[] args) {
 		Personne p = new Personne();
 		JFrame f = new JFrame("Heaven Or Hell");
-		f.setContentPane(new InfoPanel(p));
+		f.setContentPane(new InfoPanel(new Joueur(), p));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//f.setSize(570, 510);
+		f.pack();
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
 		
