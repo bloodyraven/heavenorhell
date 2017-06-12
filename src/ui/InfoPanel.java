@@ -59,7 +59,7 @@ public class InfoPanel extends JPanel {
 	}
 	
 	private void initInfoPersonne(Personne personne) {
-		contentPanel.add(new JLabel("Nom : "+this.personne.getCivilite()+" "+this.personne.getNom()[0]));
+		contentPanel.add(new JLabel("Nom : "+this.personne.getCivilite()+" "+this.personne.getNomFamille()+" "+this.personne.getNom()[0]));
 		contentPanel.add(new JLabel("Adresse : "+personne.getNumRue()+" "+personne.getAdresse_ville()[0]));
 		contentPanel.add(new JLabel("                   "+personne.getAdresse_ville()[1]));
 		contentPanel.add(new JLabel("Age : "+personne.getAge()));

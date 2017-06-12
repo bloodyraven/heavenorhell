@@ -8,7 +8,7 @@ import java.io.IOException;
 public class CSVReader {
 
 	public static void main(String[] args) {
-		getRandomLineCSV("resources/prenom.csv", ",", 565);
+		System.out.println(getRandomLineCSV("resources/noms.csv", ",", 400)[0]);
 	}
 	
 	/**

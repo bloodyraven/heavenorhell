@@ -8,6 +8,7 @@ import csv.CSVReader;
 public class Personne {
 
 	private String[] nom_genre;
+	private String nomFamille;
 	private int numRue;
 	private String[] adresse_ville;
 	private int age;
@@ -16,6 +17,7 @@ public class Personne {
 	public Personne() {
 		nom_genre = CSVReader.getRandomLineCSV(Constantes.FILENAME_PRENOM, Constantes.SEPARATOR_PRENOM, Constantes.MAX_LINES_PRENOM);
 		nom_genre[0] = nom_genre[0].substring(0, 1).toUpperCase() + nom_genre[0].substring(1, nom_genre[0].length());
+		nomFamille = CSVReader.getRandomLineCSV(Constantes.FILENAME_NOM, Constantes.SEPARATOR_NOM, Constantes.MAX_LINES_NOM)[0];
 		adresse_ville = CSVReader.getRandomLineCSV(Constantes.FILENAME_VILLE_RUE, Constantes.SEPARATOR_VILLE_RUE, Constantes.MAX_LINES_VILLE_RUE);
 		age = (int) (Math.random() * 99) + 2 ;
 		numRue = (int) (Math.random()*1000) +1;
@@ -25,7 +27,7 @@ public class Personne {
 	public String toString() {
 		String str = "";
 		System.out.print(getCivilite()+" ");
-		System.out.println(nom_genre[0]);
+		System.out.println(nomFamille+" "+nom_genre[0]);
 		System.out.println(numRue+" "+adresse_ville[0]+"\n"+adresse_ville[1]);
 		System.out.println("Age : "+age);
 		System.out.println("Ce que j'ai fait : ");
@@ -81,6 +83,14 @@ public class Personne {
 
 	public void setNumRue(int numRue) {
 		this.numRue = numRue;
+	}
+
+	public String getNomFamille() {
+		return nomFamille;
+	}
+
+	public void setNomFamille(String nomFamille) {
+		this.nomFamille = nomFamille;
 	}
 	
 }
